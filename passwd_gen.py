@@ -1,6 +1,6 @@
 #MIT License
 #
-#Copyrigth (c) 2026 9arya
+#Copyright (c) 2026 9arya
 import random, string, base64
 import sys
 def main():
