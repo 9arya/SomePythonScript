@@ -12,17 +12,22 @@ def main():
             LengthOfPassword += 30
         elif (sys.argv[1]).lower() == "google":
             LengthOfPassword += 100
+        elif int(sys.argv[1]) < 1:
+            LengthOfPassword += 8 
         else:
             LengthOfPassword += int(sys.argv[1])
         mo=""
         for n in range(LengthOfPassword):
             d=random.choice(string.printable)
-            mo+=mo.join(d)
+            mo+=d
         FirstResult="".join(mo)
         SecondResult = base64.z85encode(FirstResult.encode())
         LastResult=SecondResult.decode()
         print(LastResult[0:LengthOfPassword])
     except (KeyboardInterrupt, EOFError):
+        return
+    except ValueError:
+        print(f"{sys.argv[1]} is not a number")
         return
 if __name__=="__main__":
     main()
