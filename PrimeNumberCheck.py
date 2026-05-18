@@ -18,11 +18,14 @@ def main():
             return
         except (KeyboardInterrupt, EOFError):return
     else:
-        if int(sys.argv[1]) < 1:print("this script not support negatif and zero");return
-        for n in range(2, int(sys.argv[1])):
-            a = int(sys.argv[1]) % n
-            if a == 0:
-                print("False: not prime numbers")
-                break
-        else:print("True: is prime numbers")
+        try:
+            if int(sys.argv[1]) < 1:print("this script not support negatif and zero");return
+            for n in range(2, int(sys.argv[1])):
+                a = int(sys.argv[1]) % n
+                if a == 0:
+                    print("False: not prime numbers")
+                    break
+            else:print("True: is prime numbers")
+        except ValueError:
+            print(f"{sys.argv[1]} is not a valid number")
 if __name__=="__main__":main()
