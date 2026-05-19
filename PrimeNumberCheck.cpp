@@ -2,11 +2,14 @@
 //
 //Copyright (c) 2026 9arya
 #include<iostream>
+#include<string>
 using namespace std;
-int main(){
+int main(int argc, char** argv){
 	long Integer;
-	cout << "enter number:";
-	cin >> Integer;
+	if (argc < 2){
+		cout << "enter number:";
+		cin >> Integer;
+	}else{Integer = stol(argv[1]);}
 	if (Integer < 1){
 		cout << "InValidInput: input is not number or is below 1" << endl;
 		return 1;
